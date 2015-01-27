@@ -123,9 +123,10 @@ def hangman(secretWord):
     lettersGuessed = []
     mistakesMade = 0
     availableLetters = string.ascii_lowercase
+    mistakesAllowed = 8
 
-    while mistakesMade < 8 and not isWordGuessed(secretWord, lettersGuessed):
-        print "You have", 8 - mistakesMade, "guesses left."
+    while mistakesMade < mistakesAllowed and not isWordGuessed(secretWord, lettersGuessed):
+        print "You have", mistakesAllowed - mistakesMade, "guesses left."
         print "Available letters:", availableLetters
         guess = raw_input("Please guess a letter: ").lower()
 
@@ -156,5 +157,5 @@ def hangman(secretWord):
 # secretWord while you're testing)
 
 secretWord = chooseWord(wordlist).lower()
-#print "Sec:" + secretWord
+print "Sec:" + secretWord
 hangman(secretWord)
